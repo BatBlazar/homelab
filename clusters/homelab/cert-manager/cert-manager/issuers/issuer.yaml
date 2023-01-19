@@ -1,47 +1,17 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-    name: letsencrypt-prod
-    namespace: cert-manager
+  name: letsencrypt-prod
+  labels:
+    substitution.flux.home.arpa/enabled: "true"  
 spec:
-    acme:
-        email: ENC[AES256_GCM,data:bK/UbqdXPIognJ6TjVaxvtvZPY0=,iv:bznwOlAwuHvzqJOa9/jpsmiSSCVw4GTwsYAZlGHuUvo=,tag:ah9GIycXmgkOcxYoI9kc7Q==,type:str]
-        preferredChain: ""
-        privateKeySecretRef:
-            name: issuer-account-key
-        server: https://acme-v02.api.letsencrypt.org/directory
-        solvers:
-            - http01:
-                ingress:
-                    class: nginx
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age: []
-    lastmodified: "2023-01-19T06:42:53Z"
-    mac: ENC[AES256_GCM,data:TDMlcOGSC5theu4Z8sCvhRZXRprgIFF2qyoYWH+EE9F/OlEoANOWIewnQVwwYRvRfekxOUBIPtAmQPaGnVcab40HwHSo2byOavJlt+ByiQ3Y7Yop96PK+0HOciQzjh9KpnSa2nWKMaqhAoVF2gjHkih5lvJ9s6S+Co6pEAYxNYg=,iv:0TD1lZM23ifKlmbJfHQ42IkIHJlVC2yov9T4TTAAF8A=,tag:cQLK1b9555qCe5vgAMRfNg==,type:str]
-    pgp:
-        - created_at: "2023-01-19T06:42:53Z"
-          enc: |
-            -----BEGIN PGP MESSAGE-----
-
-            hQIMA0yXZEDx4oYEARAAoNTwWv75M3ytVowOHSQT0z4jubZzopvZ9k8qPZxThtKW
-            3Lf6ODUyhxBNwdnmMlVZOYAHAf1xu+6fdpgYN3eKnjTPA2dukTUy8uzjnaDyOnJJ
-            C+bygPuSx+1c6DpEkKnqapQRL6+DWQcyBkZ+RRvGgyktdw5Fr4fYAW6mHcCcguqH
-            IO+PuyAp6FGScp/UBkFzPj6jKNxpfTDRwhpfMPaTyanoUZls+fDGQU6C1r8uZlXM
-            HVurJvqK16MA/RiqyuKx/0zmsr2LSjpC1hMWV/Y+XOVCDwkqTGk629xaFbpAr9pG
-            i5S18s+JRAdJzw2ftycV3zY9TReMvCJ5+kww6OikDVVQ7ZAREI7YMN/voCNg5D6C
-            6GaX67iVHO9WoCOL7gPl/3x6Qf3inSmlkpSqMDLQQMBBN1VD8YmVrWdPQxo+Q3fJ
-            NZoPRwA1SW7fRnfCMGdAIjkssF/zf3H2trp6RxNVamTEJTvWW9Xlv7AJ5UXFkv/2
-            YnP7V8IyPunBYeF40HBSR87XbIgw//GPgIZ/vcTNZx/rDT+3T5CkQ89l20E9u4j0
-            NLKUQTnxblpEeQdIssp9fUFEZtjWIDwPUwZZT5XeyyntqJCMR+00kc4eVemjpfF4
-            jQwx4qSrkGws6PHp6ocC4fINO2BheHpArvDJuZ/qSkh3+7xLozYV9CBLODTdQHjS
-            XgEWrzz+M2ycEkBFFJ4dZ3YRmarvu+usSIrr5/TFLmARFquTpqA9ArUj4Q3b3nnr
-            Leps3hUF9yY1ImhUUv9dTWLj4zOcpeYb+JLyy+BwI63v9l345iEaOZRi6IeTsVE=
-            =0p4i
-            -----END PGP MESSAGE-----
-          fp: 0C719FE15386B0BF4B4DA059C1B7A10170087717
-    encrypted_regex: ^(email)$
-    version: 3.7.3
+  acme:
+    email: "${SECRET_EMAIL}"
+    preferredChain: ''
+    privateKeySecretRef:
+      name: issuer-account-key
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
