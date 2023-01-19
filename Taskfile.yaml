@@ -1,0 +1,16 @@
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+
+dotenv: [".config.env"]
+
+includes:
+  cluster: .taskfiles/ClusterTasks.yml
+
+tasks:
+  configure:
+    desc: Configure repository from env settings
+    cmds:
+      - ./configure  
