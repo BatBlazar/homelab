@@ -26,7 +26,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    nodeSelector: kubernetes.io/hostname=k3s-server
+    nodeSelector: 
+      kubernetes.io/hostname: k3s-server
     installCRDs: true
     extraArgs:
       - --dns01-recursive-nameservers=1.1.1.1:53,9.9.9.9:53
