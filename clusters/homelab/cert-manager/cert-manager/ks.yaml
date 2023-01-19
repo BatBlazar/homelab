@@ -15,7 +15,7 @@ spec:
       kind: HelmRelease
       name: cert-manager
       namespace: cert-manager
-  interval: 30m
+  interval: 1m
   retryInterval: 1m
   timeout: 3m
 ---
@@ -26,12 +26,12 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-cert-manager
+    - name: cert-manager
   path: ./clusters/homelab/cert-manager/cert-manager/issuers
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  interval: 30m
+  interval: 1m
   retryInterval: 1m
   timeout: 3m
