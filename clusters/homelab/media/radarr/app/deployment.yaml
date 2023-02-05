@@ -34,7 +34,7 @@ spec:
             value: Africa/Tunis
         resources: {}
         ports:
-        - containerPort: 8989
+        - containerPort: 7878
         volumeMounts:
         - name: config
           mountPath: /config

@@ -46,7 +46,7 @@ spec:
         command: ["sh", "-c", "chown -R 1000:1000 /config"]
         volumeMounts:
           - name: config
-            mountPath: /config                 
+            mountPath: /config
       volumes:
       - name: config
         persistentVolumeClaim:
