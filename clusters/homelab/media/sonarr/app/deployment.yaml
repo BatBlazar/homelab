@@ -43,3 +43,12 @@ spec:
   - name: data
     persistentVolumeClaim:
       claimName: data
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - k3s-worker-1     
