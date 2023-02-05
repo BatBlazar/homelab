@@ -12,7 +12,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: qbittorrent-udp
+  name: qbittorrent-incoming
 spec:
   type: NodePort
   selector:
@@ -20,3 +20,4 @@ spec:
   ports:
   - port: 30666
     targetPort: 30666
+    nodePort: 30666
