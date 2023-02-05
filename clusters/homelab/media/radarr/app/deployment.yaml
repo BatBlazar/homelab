@@ -20,16 +20,10 @@ spec:
                 operator: In
                 values:
                 - k3s-worker-1   
-      securityContext:
-        fsGroup: 1000
       containers:
       - name: sonarr
         image: lscr.io/linuxserver/radarr
         env:
-          - name: PUID
-            value: "1000"
-          - name: PGID
-            value: "1000"
           - name: TZ
             value: Africa/Tunis
         resources: {}
@@ -39,14 +33,7 @@ spec:
         - name: config
           mountPath: /config
         - name: data
-          mountPath: /data
-      initContainers:
-      - name: volume-permissions
-        image: busybox
-        command: ["sh", "-c", "chown -R 1000:1000 /config"]
-        volumeMounts:
-          - name: config
-            mountPath: /config                 
+          mountPath: /data               
       volumes:
       - name: config
         persistentVolumeClaim:
