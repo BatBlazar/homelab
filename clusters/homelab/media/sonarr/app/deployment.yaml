@@ -11,6 +11,15 @@ spec:
       labels:
         app: sonarr
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - k3s-worker-1         
       containers:
       - name: sonarr
         image: lscr.io/linuxserver/sonarr
@@ -36,19 +45,10 @@ spec:
         volumeMounts:
           - name: config
             mountPath: /config                 
-  volumes:
-  - name: config
-    persistentVolumeClaim:
-      claimName: sonarr-config
-  - name: data
-    persistentVolumeClaim:
-      claimName: data
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/hostname
-            operator: In
-            values:
-            - k3s-worker-1     
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: sonarr-config
+      - name: data
+        persistentVolumeClaim:
+          claimName: data
