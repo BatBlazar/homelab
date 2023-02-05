@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: media
 resources:
   - deployment.yaml
+  - pvc.yaml
