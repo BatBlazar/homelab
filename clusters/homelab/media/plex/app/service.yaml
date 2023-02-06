@@ -7,5 +7,5 @@ spec:
     app: plex
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 32400
 
