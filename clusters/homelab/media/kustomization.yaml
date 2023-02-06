@@ -8,3 +8,4 @@ resources:
   - ./radarr/ks.yaml
   - ./jackett/ks.yaml
   - ./qbittorrent/ks.yaml
+  - ./plex/ks.yaml
