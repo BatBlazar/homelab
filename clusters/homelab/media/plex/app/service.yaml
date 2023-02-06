@@ -5,6 +5,8 @@ metadata:
 spec:
   selector:
     app: plex
+  type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 32400
+    targetPort: 80
+    
