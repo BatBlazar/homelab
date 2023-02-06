@@ -9,4 +9,4 @@ resources:
   - ./jackett/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./plex/ks.yaml
-  - ./nginxproxymanager/ks.yaml
+  - ./nginx/ks.yaml

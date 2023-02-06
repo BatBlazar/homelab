@@ -2,10 +2,10 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: plex
+  name: nginx
   namespace: flux-system
 spec:
-  path: ./clusters/homelab/media/plex/app
+  path: ./clusters/homelab/media/nginx/app
   prune: true
   sourceRef:
     kind: GitRepository
