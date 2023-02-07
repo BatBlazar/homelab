@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: unmanic
+  name: tdarr
 spec:
   selector:
     matchLabels:
-      app: unmanic
+      app: tdarr
   template:
     metadata:
       labels:
-        app: unmanic
+        app: tdarr
     spec:
       affinity:
         nodeAffinity:
@@ -21,23 +21,34 @@ spec:
                 values:
                 - k3s-worker-1
       containers:
-      - name: unmanic
-        image: josh5/unmanic
+      - name: tdarr
+        image: ghcr.io/haveagitgat/tdarr
         env:
           - name: TZ
             value: Africa/Tunis
+          - name: serverIP
+            value: 0.0.0.0
+          - name: serverPort
+            value: "8266"
+          - name: webUIPort
+            value: "8265"
+          - name: internalNode
+            value: "true"
+          - name: nodeID
+            value: InternalNode
         resources: {}
         ports:
-        - containerPort: 8888
+        - containerPort: 8266
+        - containerPort: 8265
         volumeMounts:
         - name: config
-          mountPath: /config
+          mountPath: /app/configs
         - name: data
           mountPath: /data
       volumes:
       - name: config
         persistentVolumeClaim:
-          claimName: unmanic-config
+          claimName: tdarr-config
       - name: data
         persistentVolumeClaim:
           claimName: data
