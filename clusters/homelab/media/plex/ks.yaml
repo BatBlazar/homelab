@@ -4,6 +4,8 @@ kind: Kustomization
 metadata:
   name: plex
   namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/enabled: "true"     
 spec:
   path: ./clusters/homelab/media/plex/app
   prune: true
