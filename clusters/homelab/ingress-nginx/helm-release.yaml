@@ -27,9 +27,9 @@ spec:
     keepHistory: false
   values:
     controller:
-      hostNetwork: true
+      hostNetwork: false
       admissionWebhooks:
-        enabled: false 
+        enabled: true 
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -40,4 +40,7 @@ spec:
                 values:
                 - k3s-ingress
       service: 
-        type: ClusterIP
+        type: NodePort
+        nodePorts:
+          http: 30080
+          https: 30443      
