@@ -21,6 +21,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: plex
+                name: jellyfin
                 port:
                   number: 80
