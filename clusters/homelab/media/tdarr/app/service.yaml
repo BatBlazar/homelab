@@ -6,7 +6,9 @@ spec:
   selector:
     app: tdarr
   ports:
-  - port: 8266
+  - name: server
+    port: 8266
     targetPort: 8266
-  - port: 80
+  - name: web
+    port: 80
     targetPort: 8265
