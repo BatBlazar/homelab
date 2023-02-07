@@ -38,7 +38,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - k3s-ingress
+                - k3s-server-1
       service: 
         type: NodePort
         nodePorts:
