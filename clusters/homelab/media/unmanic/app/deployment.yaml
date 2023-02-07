@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unmanic
+spec:
+  selector:
+    matchLabels:
+      app: unmanic
+  template:
+    metadata:
+      labels:
+        app: unmanic
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - k3s-worker-1
+      containers:
+      - name: unmanic
+        image: josh5/unmanic
+        env:
+          - name: TZ
+            value: Africa/Tunis
+        resources: {}
+        ports:
+        - containerPort: 8888
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: unmanic-config
+      - name: data
+        persistentVolumeClaim:
+          claimName: data
