@@ -28,6 +28,8 @@ spec:
   values:
     controller:
       hostNetwork: true
+      admissionWebhooks:
+        enabled: false 
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
