@@ -5,6 +5,8 @@ metadata:
 spec:
   selector:
     app: minecraft
+  type: NodePort  
   ports:
   - port: 25565
     targetPort: 25565
+    nodePort: 30565
