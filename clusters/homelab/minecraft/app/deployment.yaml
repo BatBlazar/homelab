@@ -36,6 +36,8 @@ spec:
             value: "TRUE"
           - name: TYPE
             value: CUSTOM
+          - name: CUSTOM_SERVER
+            value: /data/spigot.jar
         resources:
           requests:
             cpu: 2000m
