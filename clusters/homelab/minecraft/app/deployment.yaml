@@ -21,9 +21,9 @@ spec:
                 values:
                 - k3s-worker-2
       securityContext:
-        # runAsUser: 1000
-        # runAsGroup: 1000
-        # fsGroup: 1000                   
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000                   
       containers:
       - name: minecraft
         image: itzg/minecraft-server
@@ -38,6 +38,8 @@ spec:
             value: CUSTOM
           - name: CUSTOM_SERVER
             value: /data/spigot.jar
+          - name: DEBUG
+            value: "true"
         resources:
           requests:
             cpu: 2000m
