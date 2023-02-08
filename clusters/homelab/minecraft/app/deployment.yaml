@@ -27,10 +27,10 @@ spec:
       containers:
       - name: minecraft
         image: itzg/minecraft-server
-        command:
-          - sleep
-        args: 
-          - "14200"
+        # command:
+        #   - sleep
+        # args: 
+        #   - "14200"
         env:
           - name: EULA
             value: "TRUE"
@@ -38,22 +38,22 @@ spec:
             value: SPIGOT
           - name: VERSION
             value: 1.19.2
-          - name: DEBUG
-            value: "true"
+          # - name: DEBUG
+          #   value: "true"
         resources:
           requests:
             cpu: 2000m
-        # livenessProbe:
-        #   exec:
-        #     command: ["mc-health"]
-        #   initialDelaySeconds: 120
-        #   periodSeconds: 60
-        # readinessProbe:
-        #   exec:
-        #     command: ["mc-health"]
-        #   initialDelaySeconds: 20
-        #   periodSeconds: 10
-        #   failureThreshold: 12
+        livenessProbe:
+          exec:
+            command: ["mc-health"]
+          initialDelaySeconds: 120
+          periodSeconds: 60
+        readinessProbe:
+          exec:
+            command: ["mc-health"]
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          failureThreshold: 12
         volumeMounts:
         - name: data
           mountPath: /data
