@@ -23,10 +23,10 @@ spec:
       containers:
       - name: minecraft
         image: itzg/minecraft-server
-        command:
-          - "sleep"
-        args:
-          - "14400"
+        # command:
+        #   - "sleep"
+        # args:
+        #   - "14400"
         env:
           - name: EULA
             value: "TRUE"
@@ -35,17 +35,17 @@ spec:
         resources:
           requests:
             cpu: 2000m
-        # livenessProbe:
-        #   exec:
-        #     command: ["mc-health"]
-        #   initialDelaySeconds: 120
-        #   periodSeconds: 60
-        # readinessProbe:
-        #   exec:
-        #     command: ["mc-health"]
-        #   initialDelaySeconds: 20
-        #   periodSeconds: 10
-        #   failureThreshold: 12
+        livenessProbe:
+          exec:
+            command: ["mc-health"]
+          initialDelaySeconds: 120
+          periodSeconds: 60
+        readinessProbe:
+          exec:
+            command: ["mc-health"]
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          failureThreshold: 12
         volumeMounts:
         - name: data
           mountPath: /data
