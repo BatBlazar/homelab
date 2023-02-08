@@ -10,6 +10,10 @@ spec:
     metadata:
       labels:
         app: minecraft
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000        
     spec:
       affinity:
         nodeAffinity:
@@ -30,8 +34,8 @@ spec:
         env:
           - name: EULA
             value: "TRUE"
-          - name: TYPE
-            value: SPIGOT
+          # - name: TYPE
+          #   value: SPIGOT
         resources:
           requests:
             cpu: 2000m
