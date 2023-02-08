@@ -23,10 +23,10 @@ spec:
       containers:
       - name: minecraft
         image: itzg/minecraft-server
-        # command:
-        #   - "sleep"
-        # args:
-        #   - "14400"
+        command:
+          - "sleep"
+        args:
+          - "14400"
         env:
           - name: EULA
             value: "TRUE"
