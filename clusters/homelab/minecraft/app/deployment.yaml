@@ -27,17 +27,13 @@ spec:
       containers:
       - name: minecraft
         image: itzg/minecraft-server
-        command:
-          - "sleep"
-        args:
-          - "14400"
         env:
           - name: EULA
             value: "TRUE"
           - name: TYPE
-            value: CUSTOM
-          - name: CUSTOM_SERVER
-            value: /data/spigot.jar
+            value: SPIGOT
+          - name: VERSION
+            value: 1.19.2
           - name: DEBUG
             value: "true"
         resources:
