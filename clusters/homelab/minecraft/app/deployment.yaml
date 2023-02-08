@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft
+spec:
+  selector:
+    matchLabels:
+      app: minecraft
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - k3s-worker-2
+      containers:
+      - name: minecraft
+        image: itzg/minecraft-server
+        # command:
+        #   - "sleep"
+        # args:
+        #   - "14400"
+        env:
+          - name: EULA
+            value: "TRUE"
+          - name: TYPE
+            value: SPIGOT
+        resources:
+          requests:
+            cpu: 2000m
+        livenessProbe:
+          exec:
+            command: ["mc-health"]
+          initialDelaySeconds: 120
+          periodSeconds: 60
+        readinessProbe:
+          exec:
+            command: ["mc-health"]
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          failureThreshold: 12
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: data

@@ -4,7 +4,7 @@ metadata:
   name: minecraft
 spec:
   selector:
-    server: minecraft
+    app: minecraft
   ports:
   - port: 25565
     targetPort: 25565
