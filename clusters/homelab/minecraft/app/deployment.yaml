@@ -9,11 +9,7 @@ spec:
   template:
     metadata:
       labels:
-        app: minecraft
-  securityContext:
-    runAsUser: 1000
-    runAsGroup: 1000
-    fsGroup: 1000        
+        app: minecraft     
     spec:
       affinity:
         nodeAffinity:
@@ -24,6 +20,10 @@ spec:
                 operator: In
                 values:
                 - k3s-worker-2
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000                   
       containers:
       - name: minecraft
         image: itzg/minecraft-server
