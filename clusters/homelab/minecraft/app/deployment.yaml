@@ -34,8 +34,8 @@ spec:
         env:
           - name: EULA
             value: "TRUE"
-          # - name: TYPE
-          #   value: SPIGOT
+          - name: TYPE
+            value: CUSTOM
         resources:
           requests:
             cpu: 2000m
