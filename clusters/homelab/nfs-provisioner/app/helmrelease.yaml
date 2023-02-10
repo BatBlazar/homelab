@@ -31,4 +31,4 @@ spec:
     storageClass:
       accessModes: ReadWriteMany
     nodeSelector:
-      kubernetes.io/hostname: k3s-server-1
+      kubernetes.io/hostname: k3s-worker-1
