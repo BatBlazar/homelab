@@ -27,7 +27,7 @@ spec:
   values:
     nfs:
       server: 10.90.91.101
-      path: /nfs-storage
+      path: /mnt/nfs
     storageClass:
       accessModes: ReadWriteMany
     nodeSelector:
