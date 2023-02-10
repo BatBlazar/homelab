@@ -38,6 +38,6 @@ spec:
       - name: config
         persistentVolumeClaim:
           claimName: plex-config
-      - name: data
+      - name: nfs
         persistentVolumeClaim:
-          claimName: nfs          
+          claimName: nfs
