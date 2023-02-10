@@ -33,7 +33,9 @@ spec:
         - name: config
           mountPath: /config
         - name: data
-          mountPath: /data               
+          mountPath: /data
+        - name: nfs
+          mountPath: /mnt/nfs                       
       volumes:
       - name: config
         persistentVolumeClaim:
@@ -41,3 +43,6 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: data
+      - name: nfs
+        persistentVolumeClaim:
+          claimName: nfs          
