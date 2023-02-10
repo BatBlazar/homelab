@@ -25,19 +25,19 @@ spec:
         image: lscr.io/linuxserver/jellyfin
         env:
           - name: TZ
-            value: Africa/Tunis
+            value: ${SECRET_TIMEZONE}
         resources: {}
         ports:
         - containerPort: 32400
         volumeMounts:
         - name: config
           mountPath: /config
-        - name: data
-          mountPath: /data
+        - name: nfs
+          mountPath: /mnt/nfs
       volumes:
       - name: config
         persistentVolumeClaim:
           claimName: jellyfin-config
-      - name: data
+      - name: nfs
         persistentVolumeClaim:
-          claimName: data
+          claimName: nfs 

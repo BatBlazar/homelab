@@ -1,19 +1,6 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: data
-  namespace: media
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: local-path
-  resources:
-    requests:
-      storage: 1500Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
   name: nfs
   namespace: media
 spec:
