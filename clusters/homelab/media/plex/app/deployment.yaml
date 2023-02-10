@@ -19,7 +19,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - k3s-worker-1
+                - k3s-worker-2
       containers:
       - name: jackett
         image: lscr.io/linuxserver/plex
@@ -32,12 +32,12 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
-        - name: data
-          mountPath: /data
+        - name: nfs
+          mountPath: /mnt/nfs
       volumes:
       - name: config
         persistentVolumeClaim:
           claimName: plex-config
       - name: data
         persistentVolumeClaim:
-          claimName: data
+          claimName: nfs          
