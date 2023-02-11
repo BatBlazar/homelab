@@ -6,6 +6,7 @@ resources:
   - ./data.yaml
   - ./sonarr/ks.yaml
   - ./radarr/ks.yaml
+  - ./bazarr/ks.yaml
   - ./jackett/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./nginx/ks.yaml

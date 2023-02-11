@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bazarr
+spec:
+  selector:
+    matchLabels:
+      app: bazarr
+  template:
+    metadata:
+      labels:
+        app: bazarr
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - k3s-worker-1
+      containers:
+      - name: bazarr
+        image: lscr.io/linuxserver/bazarr
+        env:
+          - name: TZ
+            value: ${SECRET_TIMEZONE}
+        resources: {}
+        ports:
+        - containerPort: 6767
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - name: nfs
+          mountPath: /mnt/nfs 
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: bazarr-config
+      - name: nfs
+        persistentVolumeClaim:
+          claimName: nfs
