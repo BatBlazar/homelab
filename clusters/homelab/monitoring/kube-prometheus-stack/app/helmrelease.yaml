@@ -31,6 +31,8 @@ spec:
         nodeSelector:
           kubernetes.io/hostname: k3s-server
     grafana:
+      forceDeployDatasources: true
+      forceDeployDashboards: true
     prometheusOperator:
       admissionWebhooks:
         patch:
