@@ -10,3 +10,4 @@ resources:
   - ./qbittorrent/ks.yaml
   - ./nginx/ks.yaml
   - ./jellyfin/ks.yaml
+  - ./jellyseerr/ks.yaml
