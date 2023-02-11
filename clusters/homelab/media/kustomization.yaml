@@ -12,3 +12,4 @@ resources:
   - ./nginx/ks.yaml
   - ./jellyfin/ks.yaml
   - ./jellyseerr/ks.yaml
+  - ./plex/ks.yaml

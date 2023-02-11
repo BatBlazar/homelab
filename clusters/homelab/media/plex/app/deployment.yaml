@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+spec:
+  selector:
+    matchLabels:
+      app: plex
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - k3s-worker-2
+      containers:
+      - name: plex
+        image: lscr.io/linuxserver/plex
+        env:
+          - name: TZ
+            value: "${SECRET_TIMEZONE}"
+        resources: {}
+        ports:
+        - containerPort: 32400
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - name: nfs
+          mountPath: /mnt/nfs
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: plex-config
+      - name: nfs
+        persistentVolumeClaim:
+          claimName: nfs 
