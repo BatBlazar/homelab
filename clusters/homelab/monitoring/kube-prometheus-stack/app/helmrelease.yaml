@@ -42,3 +42,6 @@ spec:
       prometheusSpec: 
         nodeSelector:
           kubernetes.io/hostname: k3s-server
+    prometheus-node-exporter:
+      hostRootFsMount:
+        enabled: false
