@@ -19,13 +19,13 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - k3s-worker-1
+                - k3s-worker-2
       containers:
       - name: jackett
         image: lscr.io/linuxserver/jellyfin
         env:
           - name: TZ
-            value: ${SECRET_TIMEZONE}
+            value: "${SECRET_TIMEZONE}"
         resources: {}
         ports:
         - containerPort: 32400

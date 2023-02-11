@@ -4,6 +4,8 @@ kind: Kustomization
 metadata:
   name: radarr
   namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/enabled: "true"  
 spec:
   path: ./clusters/homelab/media/radarr/app
   prune: true

@@ -5,7 +5,7 @@ metadata:
   name: jellyfin
   namespace: flux-system
   labels:
-    substitution.flux.home.arpa/enabled: "true"   
+    substitution.flux.home.arpa/enabled: "true"
 spec:
   path: ./clusters/homelab/media/jellyfin/app
   prune: true
