@@ -15,8 +15,8 @@ spec:
       kind: HelmRelease
       name: cert-manager
       namespace: cert-manager
-  interval: 1m
-  retryInterval: 1m
+  interval: 60m
+  retryInterval: 5m
   timeout: 3m
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
@@ -34,6 +34,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  interval: 1m
-  retryInterval: 1m
+  interval: 60m
+  retryInterval: 5m
   timeout: 3m

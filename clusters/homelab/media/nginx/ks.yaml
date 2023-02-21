@@ -10,6 +10,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  interval: 1m
-  retryInterval: 1m
+  interval: 60m
+  retryInterval: 5m
   timeout: 3m
