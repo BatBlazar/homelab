@@ -5,7 +5,7 @@ metadata:
   name: cert-manager
   namespace: flux-system
 spec:
-  path: ./clusters/homelab/cert-manager/cert-manager/app
+  path: ./clusters/rancher/cert-manager/cert-manager/app
   prune: true
   sourceRef:
     kind: GitRepository
