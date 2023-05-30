@@ -26,8 +26,15 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    hostname: rancher.lab.lan
     global:
       cattle:
         psp:
           enabled: false
+    hostname: rancher.lab.lan          
+    ingress:
+      tls:
+        source: "rancher"
+    letsEncrypt:
+      email: admin@mgmt.lan
+      environment: "staging"
+    replicas: 1
