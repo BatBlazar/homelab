@@ -32,3 +32,4 @@ spec:
         enabled: true 
       service: 
         type: LoadBalancer
+      watchIngressWithoutClass: true
