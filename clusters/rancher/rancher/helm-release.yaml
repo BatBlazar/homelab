@@ -27,3 +27,7 @@ spec:
     keepHistory: false
   values:
     hostname: rancher.lab.lan
+    global:
+      cattle:
+        psp:
+          enabled: false
