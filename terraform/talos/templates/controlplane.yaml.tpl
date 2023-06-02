@@ -92,7 +92,7 @@ cluster:
     cni:
       name: custom
       urls:
-        - https://raw.githubusercontent.com/batblazar/homelab/clusters/controlplane/talos/cilium.yaml
+        - https://raw.githubusercontent.com/BatBlazar/homelab/main/clusters/controlplane/talos/cilium.yaml
   proxy:
     disabled: true
   etcd:
@@ -227,11 +227,11 @@ cluster:
   externalCloudProvider:
     enabled: true
     manifests:
-    - https://raw.githubusercontent.com/batblazar/homelab/clusters/controlplane/talos/coredns-local.yaml
-    - https://raw.githubusercontent.com/batblazar/homelab/clusters/controlplane/talos/metallb-native.yaml
-    - https://raw.githubusercontent.com/batblazar/homelab/clusters/controlplane/talos/metrics-server.yaml
-    - https://raw.githubusercontent.com/batblazar/homelab/clusters/controlplane/talos/fluxcd.yaml
-    - https://raw.githubusercontent.com/batblazar/homelab/clusters/controlplane/talos/fluxcd-install.yaml
+    - https://raw.githubusercontent.com/BatBlazar/homelab/main/clusters/controlplane/talos/coredns-local.yaml
+    - https://raw.githubusercontent.com/BatBlazar/homelab/main/clusters/controlplane/talos/metallb-native.yaml
+    - https://raw.githubusercontent.com/BatBlazar/homelab/main/clusters/controlplane/talos/metrics-server.yaml
+    - https://raw.githubusercontent.com/BatBlazar/homelab/main/clusters/controlplane/talos/fluxcd.yaml
+    - https://raw.githubusercontent.com/BatBlazar/homelab/main/clusters/controlplane/talos/fluxcd-install.yaml
     - https://raw.githubusercontent.com/sergelogvinov/terraform-talos/main/_deployments/vars/talos-cloud-controller-manager-result.yaml
     - https://raw.githubusercontent.com/sergelogvinov/proxmox-cloud-controller-manager/main/docs/deploy/cloud-controller-manager-talos.yml
     - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
